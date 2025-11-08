@@ -1,1446 +1,158 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دحوم ستور -  افضل الاكترونيات والملحقات </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-               :root {
-            --primary: #0a1628;
-            --secondary: #1e3a8a;
-            --accent: #3b82f6;
-            --blue-light: #60a5fa;
-            --blue-dark: #1d4ed8;
-            --cream: #f8fafc;
-            --white: #ffffff;
-            --black: #000000;
-            --grey-dark: #1e293b;
-            --grey-light: #f1f5f9;
-            --shadow-light: 0 4px 20px rgba(59, 130, 246, 0.15);
-            --shadow-heavy: 0 15px 50px rgba(10, 22, 40, 0.3);
-            --shadow-blue: 0 8px 32px rgba(59, 130, 246, 0.25);
-            --gradient-primary: linear-gradient(135deg, #0a1628 0%, #1e3a8a 50%, #1e40af 100%);
-            --gradient-blue: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
-            --gradient-card: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-            --radius: 16px;
-            --radius-large: 24px;
-            --border-luxury: 2px solid var(--accent);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Tajawal', system-ui, sans-serif;
-            background: var(--gradient-primary);
-            color: var(--white);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(96, 165, 250, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(29, 78, 216, 0.05) 0%, transparent 50%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: rgba(10, 22, 40, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 0;
-        }
-
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 900;
-            background: var(--gradient-blue);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            letter-spacing: -1px;
-        }
-
-        .logo span {
-            background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--cream);
-            font-weight: 500;
-            font-size: 1.1rem;
-            padding: 0.5rem 1.5rem;
-            border-radius: var(--radius);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-blue);
-            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: -1;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .nav-links a:hover::before {
-            left: 0;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .cart-btn {
-            position: relative;
-            background: var(--gradient-blue);
-            border: none;
-            padding: 1rem 1.5rem;
-            border-radius: var(--radius);
-            cursor: pointer;
-            color: var(--white);
-            font-size: 1.2rem;
-            font-weight: 600;
-            transition: all 0.4s ease;
-            box-shadow: var(--shadow-blue);
-        }
-
-        .cart-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.4);
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: var(--primary);
-            color: var(--blue-light);
-            border: 2px solid var(--blue-light);
-            border-radius: 50%;
-            width: 28px;
-            height: 28px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            60% { transform: scale(1.1); }
-        }
-
-        /* Hero Section */
-        .hero {
-            background: 
-                linear-gradient(135deg, rgba(10, 22, 40, 0.8) 0%, rgba(30, 58, 138, 0.9) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%233b82f6" fill-opacity="0.05" points="0,200 200,0 400,400 400,400"/><polygon fill="%2360a5fa" fill-opacity="0.03" points="600,100 800,300 600,500 400,300"/></svg>');
-            padding: 8rem 0;
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 900;
-            margin-bottom: 2rem;
-            background: var(--gradient-blue);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            letter-spacing: -2px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            opacity: 0.9;
-            color: var(--cream);
-            font-weight: 300;
-            margin-bottom: 3rem;
-        }
-
-        .hero-cta {
-            display: inline-block;
-            background: var(--gradient-blue);
-            color: var(--white);
-            padding: 1.2rem 3rem;
-            border-radius: var(--radius-large);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2rem;
-            transition: all 0.4s ease;
-            box-shadow: var(--shadow-blue);
-            border: 2px solid transparent;
-        }
-
-        .hero-cta:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.4);
-            border-color: var(--blue-light);
-        }
-
-        
-        .products-section {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, rgba(248, 248, 248, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%);
-            margin: 0 -20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 4rem;
-            background: var(--gradient-blue);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--gradient-blue);
-            border-radius: 2px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        .product-card {
-            background: var(--gradient-card);
-            border-radius: var(--radius-large);
-            box-shadow: var(--shadow-light);
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            border: 1px solid rgba(59, 130, 246, 0.1);
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-blue);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: var(--shadow-heavy);
-            border-color: var(--accent);
-        }
-
-        .product-card:hover::before {
-            opacity: 0.05;
-        }
-
-        .product-image {
-            width: 100%;
-            height: 280px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            color: var(--accent);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-            transform: scale(0);
-            transition: transform 0.4s ease;
-        }
-
-        .product-card:hover .product-image::before {
-            transform: scale(1);
-        }
-
-        .product-content {
-            padding: 2.5rem;
-            color: var(--grey-dark);
-        }
-
-        .product-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary);
-            position: relative;
-        }
-
-        .product-description {
-            color: #666;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .product-price {
-            font-size: 2rem;
-            font-weight: 900;
-            background: var(--gradient-blue);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 2rem;
-        }
-
-        .add-to-cart {
-            width: 100%;
-            background: var(--gradient-primary);
-            color: var(--cream);
-            border: var(--border-luxury);
-            padding: 1.2rem 2rem;
-            border-radius: var(--radius);
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .add-to-cart::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-blue);
-            transition: left 0.4s ease;
-            z-index: -1;
-        }
-
-        .add-to-cart:hover {
-            color: var(--white);
-            border-color: var(--blue-light);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-blue);
-        }
-
-        .add-to-cart:hover::before {
-            left: 0;
-        }
-
-        /* Cart Sidebar */
-        .cart-sidebar {
-            position: fixed;
-            top: 0;
-            right: -450px;
-            width: 450px;
-            height: 100vh;
-            background: var(--gradient-card);
-            border-left: var(--border-luxury);
-            backdrop-filter: blur(20px);
-            transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 2000;
-            display: flex;
-            flex-direction: column;
-            box-shadow: -10px 0 50px rgba(10, 22, 40, 0.3);
-        }
-
-        .cart-sidebar.active {
-            right: 0;
-        }
-
-        .cart-header {
-            padding: 2rem;
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--gradient-primary);
-            color: var(--cream);
-        }
-
-        .cart-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: var(--gradient-blue);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .close-cart {
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--accent);
-            transition: all 0.3s ease;
-        }
-
-        .close-cart:hover {
-            transform: rotate(90deg);
-            color: var(--blue-light);
-        }
-
-        .cart-items {
-            flex: 1;
-            overflow-y: auto;
-            padding: 1.5rem;
-            color: var(--grey-dark);
-        }
-
-        .cart-item {
-            display: flex;
-            gap: 1.5rem;
-            padding: 1.5rem;
-            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
-            align-items: center;
-            background: rgba(255, 255, 255, 0.8);
-            margin-bottom: 1rem;
-            border-radius: var(--radius);
-            transition: all 0.3s ease;
-        }
-
-        .cart-item:hover {
-            background: rgba(59, 130, 246, 0.1);
-            transform: translateX(-5px);
-        }
-
-        .item-image {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-blue);
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--white);
-        }
-
-        .item-details {
-            flex: 1;
-        }
-
-        .item-name {
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .item-price {
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .item-controls {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .quantity-btn {
-            width: 40px;
-            height: 40px;
-            border: var(--border-luxury);
-            background: var(--white);
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            transition: all 0.3s ease;
-        }
-
-        .quantity-btn:hover {
-            background: var(--gradient-gold);
-            color: var(--primary);
-            transform: scale(1.1);
-        }
-
-        .remove-item {
-            color: #e74c3c;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
-            padding: 0.5rem;
-            border-radius: var(--radius);
-            transition: all 0.3s ease;
-        }
-
-        .remove-item:hover {
-            background: rgba(231, 76, 60, 0.1);
-            transform: scale(1.2);
-        }
-
-        .cart-footer {
-            padding: 2rem;
-            border-top: var(--border-luxury);
-            background: var(--gradient-primary);
-            color: var(--cream);
-        }
-
-        .cart-total {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-bottom: 2rem;
-            color: var(--cream);
-        }
-
-        .cart-total span:last-child {
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            background-clip: text;
-        }
-
-        .checkout-btn {
-            width: 100%;
-            background: var(--gradient-gold);
-            color: var(--primary);
-            border: none;
-            padding: 1.5rem;
-            border-radius: var(--radius);
-            font-weight: 900;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: var(--shadow-gold);
-        }
-
-        .checkout-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
-        }
-
-        
-        .about-section {
-            background: var(--gradient-card);
-            padding: 6rem 0;
-            margin: 4rem -20px;
-            color: var(--grey-dark);
-        }
-
-        .about-content {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .about-content p {
-            font-size: 1.3rem;
-            line-height: 2;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        
-        footer {
-            background: var(--gradient-primary);
-            padding: 4rem 0;
-            text-align: center;
-            border-top: var(--border-luxury);
-        }
-
-        
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(26, 26, 46, 0.8);
-            backdrop-filter: blur(5px);
-            display: none;
-            z-index: 1500;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .overlay.active {
-            display: block;
-            opacity: 1;
-        }
-
-        
-        .checkout-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(26, 26, 46, 0.9);
-            backdrop-filter: blur(10px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 3000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .checkout-modal.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-content {
-            background: var(--gradient-card);
-            padding: 3rem;
-            border-radius: var(--radius-large);
-            width: 90%;
-            max-width: 600px;
-            box-shadow: var(--shadow-heavy);
-            border: var(--border-luxury);
-            color: var(--grey-dark);
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-        }
-
-        .checkout-modal.active .modal-content {
-            transform: scale(1);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .modal-header h3 {
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 2rem;
-            font-weight: 900;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 1.2rem;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            border-radius: var(--radius);
-            font-size: 1.1rem;
-            background: rgba(255, 255, 255, 0.9);
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-        }
-
-        .submit-order {
-            width: 100%;
-            background: var(--gradient-gold);
-            color: var(--primary);
-            border: none;
-            padding: 1.5rem;
-            border-radius: var(--radius);
-            font-weight: 900;
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-top: 2rem;
-            transition: all 0.4s ease;
-            box-shadow: var(--shadow-gold);
-        }
-
-        .submit-order:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Notification */
-        .notification {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: var(--gradient-gold);
-            color: var(--primary);
-            padding: 1.5rem 2.5rem;
-            border-radius: var(--radius);
-            z-index: 4000;
-            box-shadow: var(--shadow-gold);
-            border: 2px solid var(--gold);
-            font-weight: 700;
-            transform: translateX(500px);
-            animation: slideIn 0.5s ease forwards;
-        }
-
-        @keyframes slideIn {
-            to { transform: translateX(0); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .cart-sidebar {
-                width: 100%;
-                right: -100%;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
-        }
-
-        
-        @keyframes shimmer {
-            0% { background-position: -200px 0; }
-            100% { background-position: calc(200px + 100%) 0; }
-        }
-
-        .loading {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200px 100%;
-            animation: shimmer 1.5s infinite;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>دحوم ستور - تحت الصيانة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#0f172a; /* dark navy */
+      --bg2:#0ea5a6; /* teal */
+      --accent:#ffd166; /* gold */
+      --card:#0b1220aa;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Cairo',system-ui,Segoe UI,Helvetica,Arial;}
+    body{
+      background:radial-gradient(1000px 600px at 10% 20%, rgba(14,165,166,0.12), transparent),
+                 linear-gradient(120deg,var(--bg1),#071024 60%);
+      color:#e6f0f6;
+      display:flex;align-items:center;justify-content:center;padding:24px;
+    }
+    .wrap{max-width:980px;width:100%;display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
+
+    /* left big panel */
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+           border-radius:18px;padding:34px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 10px 30px rgba(2,6,23,0.6);}
+
+    .brand{display:flex;align-items:center;gap:16px}
+    .logo{
+      width:84px;height:84px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,var(--bg2),#06b6d4);box-shadow:0 6px 18px rgba(6,182,212,0.18);flex-shrink:0
+    }
+    .logo svg{width:46px;height:46px;filter:drop-shadow(0 6px 14px rgba(6,182,212,0.18));}
+    .brand h1{margin:0;font-size:28px;letter-spacing:0.6px}
+    .brand p{margin:0.2rem 0 0;color:#cfe9ee;font-size:14px}
+
+    .title{margin-top:26px;font-size:34px;font-weight:700}
+    .desc{margin-top:10px;color:#bcdedf;line-height:1.6}
+
+    .actions{display:flex;gap:12px;margin-top:20px}
+    .btn{padding:12px 18px;border-radius:12px;border:none;cursor:pointer;font-weight:700}
+    .btn.primary{background:linear-gradient(90deg,var(--bg2),#0891b2);color:#012;}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit}
+
+    .meta{display:flex;gap:14px;align-items:center;margin-top:18px;color:#9fd8db}
+    .chip{background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.03)}
+
+    /* right card */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:26px;border-radius:16px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 12px 40px rgba(2,6,23,0.6)}
+    .card h3{margin:0 0 8px 0}
+    .countdown{display:flex;gap:10px;justify-content:space-between}
+    .time{flex:1;background:rgba(255,255,255,0.03);padding:12px;border-radius:10px;text-align:center}
+    .time strong{display:block;font-size:20px}
+    .time small{display:block;color:#bfe8ea}
+
+    .subscribe{display:flex;gap:8px;margin-top:16px}
+    .subscribe input{flex:1;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .subscribe button{padding:12px 14px;border-radius:10px;border:none;background:var(--accent);font-weight:700}
+
+    /* animation */
+    .wrench{width:120px;height:120px;margin-left:auto;margin-right:auto;display:block}
+    @keyframes swing{0%{transform:rotate(0deg)}25%{transform:rotate(18deg)}50%{transform:rotate(-12deg)}75%{transform:rotate(10deg)}100%{transform:rotate(0deg)}}
+    .wrench svg{animation:swing 4s ease-in-out infinite}
+
+    /* responsive */
+    @media (max-width:880px){.wrap{grid-template-columns:1fr;}.logo{width:68px;height:68px}.title{font-size:26px}.panel{padding:22px}.card{margin-top:6px}}
+
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-top">
-                <div class="logo">دحوم<span>ستور</span></div>
-                
-                <nav class="nav-links">
-                    <a href="#home">الرئيسية</a>
-                    <a href="#products">المنتجات</a>
-                    <a href="#about">من نحن</a>
-                    <a href="#contact">اتصل بنا</a>
-                </nav>
+  <main class="wrap">
+    <section class="panel">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- simple bag icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 7V6a6 6 0 0112 0v1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+            <rect x="3" y="7" width="18" height="14" rx="3" stroke="#fff" stroke-width="1.6" opacity="0.95"/>
+            <path d="M8 11h8" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity="0.95"/>
+          </svg>
+        </div>
+        <div>
+          <h1>دحوم ستور</h1>
+          <p>نأسف للإزعاج — الموقع حاليًا تحت الصيانة لتحسين الأداء وإضافة ميزات جديدة.</p>
+        </div>
+      </div>
 
-                <div class="header-actions">
-                    <button class="cart-btn" onclick="toggleCart()">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count" id="cartCount">0</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>افضل الاكترونيات وافضل المنتجات</h1>
-            <p>جودة واستلام سريع من دحوم ستور</p>
-        </div>
+      <h2 class="title">رجوع أقرب وقت ممكن</h2>
+      <p class="desc">فريق دحوم يعمل على تحديث الموقع ليصبح أسرع وأسهل في الاستخدام. إذا عندك طلب مستعجل تقدر تراسلنا على البريد أو تتابعنا عبر حسابنا.</p>
+
+      <div class="actions">
+        <button class="btn primary" onclick="openMail()">راسلنا الآن</button>
+        <button class="btn ghost" onclick="goHome()">العودة للصفحة الرئيسية</button>
+      </div>
+
+      <div class="meta">
+        <div class="chip">مدة الصيانة: تقريبًا 42 ساعة</div>
+        <div class="chip">حالة: جاري العمل 🔧</div>
+      </div>
     </section>
-<section class="products-section" id="products">
-    <div class="container">
-        <h2 class="section-title">منتجاتنا</h2>
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://i.postimg.cc/DwnVpT3w/byb.png" alt="">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-title">سماعات أذن سلكية  مع ميكروفون بزاوية 120 درجة لأجهزة الكمبيوتر المحمولة واللوحية والهواتف</h3>
-                    <p class="product-description">سماعات أذن سلكية  مع ميكروفون بزاوية 120 درجة لأجهزة الكمبيوتر المحمولة واللوحية والهواتف</p>
-                    <div class="product-price">20 ر.س</div>
-                    <button class="add-to-cart" onclick="addToCart('سماعات أذن سلكية  مع ميكروفون بزاوية 120 درجة لأجهزة الكمبيوتر المحمولة واللوحية والهواتف', 120, 'beef.jpg')">
-                        إضافة إلى السلة
-                    </button>
-                </div>
-            </div>
 
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://i.postimg.cc/PqnCRNrD/f.png" alt="">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-title">كابل HDMI 2.1 من NIERBO، سلك HDMI بدقة 8K و60 هرتز و4K و120 هرتز و48 جيجابت في الثانية، EARC ARC، HDCP، HDR فائق السرعة لأجهزة التلفزيون عالية الدقة والكمبيوتر المحمول وأجهزة العرض PS4 وPS5</h3>
-                    <p class="product-description"></p>
-                    <div class="product-price">30 ر.س</div>
-                    <button class="add-to-cart" onclick="addToCart('كابل HDMI 2.1 من NIERBO، سلك HDMI بدقة 8K و60 هرتز و4K و120 هرتز و48 جيجابت في الثانية، EARC ARC، HDCP، HDR فائق السرعة لأجهزة التلفزيون عالية الدقة والكمبيوتر المحمول وأجهزة العرض PS4 وPS5', 30, 'chicken.jpg')">
-                        إضافة إلى السلة
-                    </button>
-                </div>
-            </div>
-
-            
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://i.postimg.cc/prwGFDxS/l.png" alt="قريباً">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-title">5-60/100/150 كجم قوة قبضة الصالة الرياضية موسع المعصم مقوي اليد قابل للتعديل لاستعادة العضلات تمارين قوة اليد</h3>
-                    <p class="product-description"></p>
-                    <div class="product-price">25 ر.س</div>
-                    <button class="add-to-cart" onclick="addToCart('5-60/100/150 كجم قوة قبضة الصالة الرياضية موسع المعصم مقوي اليد قابل للتعديل لاستعادة العضلات تمارين قوة اليد', 25, 'salmon.jpg')">
-                        إضافة إلى السلة
-                    </button>
-                </div>
-            </div>
-
-            
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://image2url.com/images/1761225797122-a864ccec-97b1-468c-af4b-29550a7c7cb1.png" alt="قريباً">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-title">ولاعة معدنية مقاومة للرياح ومقاومة للماء ومطلية بالكهرباء بنقش تنين أحمر ولاعة سيجار مباشرة للرجال إكسسوارات الدخان</h3>
-                    <p class="product-description"></p>
-                    <div class="product-price">5 ر.س</div>
-                    <button class="add-to-cart" onclick="addToCart('ولاعة معدنية مقاومة للرياح ومقاومة للماء ومطلية بالكهرباء بنقش تنين أحمر ولاعة سيجار مباشرة للرجال إكسسوارات الدخان', 95, 'bacon.jpg')">
-                        إضافة إلى السلة
-                    </button>
-                </div>
-            </div>
-                   <div class="product-card">
-                <div class="product-image">
-                    <img src="https://i.postimg.cc/kgbCzcBR/lbl.png" alt="قريباً">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-title">علبة سجائر سميكة 20 سلك تنجستن مشعل شحن USB ولاعة خارجية مقاومة للماء والرطوبة ولاعات كهربائية للدخان</h3>
-                    <p class="product-description"></p>
-                    <div class="product-price">25 ر.س</div>
-                    <button class="add-to-cart" onclick="addToCart('علبة سجائر سميكة 20 سلك تنجستن مشعل شحن USB ولاعة خارجية مقاومة للماء والرطوبة ولاعات كهربائية للدخان', 25, 'bacon.jpg')">
-                    إضافة إلى السلة
-            </button>
+    <aside class="card">
+      <div style="text-align:center">
+        <div class="wrench" aria-hidden="true">
+          <!-- animated wrench SVG -->
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <path d="M48.4 15.6l.5-.5a6 6 0 10-8.5-8.4l-.6.7L27 19l8.9 8.9 12.5-12.3z" fill="#ffd166" opacity="0.95"/>
+            <path d="M21 42l-7 7 4 4 7-7 21-21-4-4L21 42z" fill="#0ea5a6" opacity="0.95"/>
+          </svg>
         </div>
-    </div>
-           <div class="product-card">
-                <div class="product-image">
-                    <img src="https://i.postimg.cc/W326x5bN/lqtt-alshasht-2025-10-23-164408.png" alt="قريباً">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-title">بلوت </h3>
-                    <p class="product-description"></p>
-                    <div class="product-price">14 ر.س</div>
-                    <button class="add-to-cart" onclick="addToCart('بلوت', 14, 'bacon.jpg')">
-                        إضافة إلى السلة
-                    </button>
-                </div>
-            </div>
-                <div class="product-card">
-                <div class="product-image">
-                    <img src="https://i.postimg.cc/m2j7vY15/lqtt-alshasht-2025-10-23-171716.png" alt="">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-title">ساعة ذكية لساعات أندرويد IOS 1.83 بوصة HD عرض بلوتوث </h3>
-                    <p class="product-description"></p>
-                    <div class="product-price">85 ر.س</div>
-                    <button class="add-to-cart" onclick="addToCart('ساعة ذكية لساعات أندرويد IOS 1.83 بوصة HD عرض بلوتوث', 85, 'bacon.jpg')">
-                        إضافة إلى السلة
-                    </button>
-                </div>
-            </div>
-                   <div class="product-card">
-                <div class="product-image">
-                    <img src="https://i.postimg.cc/x1FCz2CS/lqtt-alshasht-2025-10-23-192529.png" alt="">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-title">لفولاذ المقاوم للصدأ سكين للفرد سكين</h3>
-                    <p class="product-description"></p>
-                    <div class="product-price">35 ر.س</div>
-                    <button class="add-to-cart" onclick="addToCart('لفولاذ المقاوم للصدأ سكين للفرد سكين', 30, 'bacon.jpg')">
-                        إضافة إلى السلة
-                    </button>
-                </div>
-            </div>
-                       <div class="product-card">
-                <div class="product-image">
-                    <img src="https://i.postimg.cc/qBLjHbqM/lqtt-alshasht-2025-10-23-193848.png" alt="">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-title">2 قطعة LED ترحيب أضواء باب السيارة شعار العارض مصابيح لكزس</h3>
-                    <p class="product-description"></p>
-                    <div class="product-price">55 ر.س</div>
-                    <button class="add-to-cart" onclick="addToCart('2 قطعة LED ترحيب أضواء باب السيارة شعار العارض مصابيح لكزس', 55, 'bacon.jpg')">
-                        إضافة إلى السلة
-                    </button>
-                </div>
-            </div>
-                          <div class="product-card">
-                <div class="product-image">
-                    <img src="https://i.postimg.cc/y8tK8718/lqtt-alshasht-2025-10-23-195316.png" alt="">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-title">مجموعة شيشة كاملة</h3>
-                    <p class="product-description"></p>
-                    <div class="product-price">110 ر.س</div>
-                    <button class="add-to-cart" onclick="addToCart('مجموعة شيشة كاملة', 110, 'bacon.jpg')">
-                        إضافة إلى السلة
-                    </button>
-                </div>
-            </div>
-                          <div class="product-card">
-                <div class="product-image">
-                    <img src="https://i.postimg.cc/htyLJ36j/lqtt-alshasht-2025-10-23-195654.png" alt="">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-title">INS المملكة العربية السعودية محفظة جواز السفر بطاقة جراب هاتف آيفون 14 برو ماكس 11 12 13 15Plus 16Pro الغطاء الخلفي </h3>
-                    <p class="product-description">اختيار لون الجراب على حسب لون الي يعجبك</p>
-                    <div class="product-price">45 ر.س</div>
-                    <button class="add-to-cart" onclick="addToCart('INS المملكة العربية السعودية محفظة جواز السفر بطاقة جراب هاتف آيفون 14 برو ماكس 11 12 13 15Plus 16Pro الغطاء الخلفي', 110, 'bacon.jpg')">
-                        إضافة إلى السلة
-                    </button>
-                </div>
-            </div>
-</section>
+        <h3>تاريخ انتهاء الصيانة المتوقع</h3>
+        <p style="margin:6px 0 14px;color:#bfe8ea">التاريخ: <strong id="eta">قريبًا</strong></p>
+      </div>
 
-
-<section class="about-section" id="about">
-    <div class="container">
-        <div class="about-content">
-            <h2 class="section-title">من نحن</h2>
-            <p>دحوم ستور هو وجهتك الأولى لعالم الإلكترونيات الحديثة. نوفر لك أحدث الأجهزة الذكية والإكسسوارات بجودة عالية وأسعار تنافسية.</p>
-            <p>من الهواتف الذكية وأجهزة الكمبيوتر إلى الأجهزة المنزلية والإكسسوارات التقنية، نسعى دائمًا لتقديم منتجات تجمع بين الأداء المتميز والتصميم العصري.</p>
-            <p>نلتزم بخدمتكم عبر توفير منتجات أصلية، دعم فني متواصل، وتجربة تسوق إلكترونية سهلة وآمنة.</p>
-        </div>
-    </div>
-</section>
-
-
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 دحوم ستور. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
-
-    
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h3 class="cart-title">سلة التسوق</h3>
-            <button class="close-cart" onclick="toggleCart()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>المجموع:</span>
-                <span id="cartTotal">0 ر.س</span>
-            </div>
-            <button class="checkout-btn" onclick="openCheckoutModal()">إتمام الطلب</button>
-        </div>
-    </div>
-
-    
-    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
-
-    
-    <div class="checkout-modal" id="checkoutModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>إتمام الطلب</h3>
-                <button class="close-cart" onclick="closeCheckoutModal()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <form id="checkoutForm">
-                <div class="form-group">
-                    <label for="customerName">الاسم الكامل</label>
-                    <input type="text" id="customerName" required>
-                </div>
-                <div class="form-group">
-                    <label for="customerEmail">البريد الإلكتروني</label>
-                    <input type="email" id="customerEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="customerPhone">رقم الهاتف</label>
-                    <input type="tel" id="customerPhone" required>
-                </div>
-                <div class="form-group">
-                    <label for="customerAddress">العنوان التفصيلي</label>
-                    <input type="text" id="customerAddress" required>
-                </div>
-                <button type="submit" class="submit-order">إرسال الطلب عبر واتساب</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-            // بيانات المنتجات
-        const products = [
-            {
-                id: 1,
-                name: "سماعات أذن سلكية مع ميكروفون بزاوية 120 درجة لأجهزة الكمبيوتر المحمولة واللوحية والهواتف",
-                price: 20,
-                description: "",
-                image: "https://cdn.discordapp.com/attachments/1281949041390911535/1428626964058607697/image.png?ex=68f3300a&is=68f1de8a&hm=0759fe704771c4e773b1e4b9037a61e6d1948a1ea1fb7c3b201338632d4c3c5e&",
-                icon: "fas fa-box"
-            },
-            {
-                id: 2,
-                name: "كابل HDMI 2.1 من NIERBO، سلك HDMI بدقة 8K و60 هرتز و4K و120 هرتز و48 جيجابت في الثانية، EARC ARC، HDCP، HDR فائق السرعة لأجهزة التلفزيون عالية الدقة والكمبيوتر المحمول وأجهزة العرض PS4 وPS5",
-                price: 30,
-                description: "",
-                image: "https://cdn.discordapp.com/attachments/1281949041390911535/1428626780540895274/image.png?ex=68f32fdf&is=68f1de5f&hm=d1a624b3e4bde26cc1be2823eb022f09e46de0adaa20c4668af2c39749826d62&",
-                icon: "fas fa-box"
-            },
-            {
-                id: 3,
-                name: "5-60/100/150 كجم قوة قبضة الصالة الرياضية موسع المعصم مقوي اليد قابل للتعديل لاستعادة العضلات تمارين قوة اليد",
-                price: 25,
-                description: "",
-                image: "https://cdn.discordapp.com/attachments/1281949041390911535/1428630114530496612/image.png?ex=68f332f9&is=68f1e179&hm=59c83b2a99fe151ac9f4f26760859263de483e78fd6763c843af6aa28e3496a2&",
-                icon: "fas fa-box"
-            },
-            {
-                id: 4,
-                name: "ولاعة معدنية مقاومة للرياح ومقاومة للماء ومطلية بالكهرباء بنقش تنين أحمر ولاعة سيجار مباشرة للرجال إكسسوارات الدخان",
-                price: 5,
-                description: "",
-                image: "https://cdn.discordapp.com/attachments/1281949041390911535/1428637285280387083/12.png?ex=68f339a7&is=68f1e827&hm=36f47e8e12c90f6ca8963c6f913179caac1ebbd809eb95a8ee034791d3c1d800&",
-                icon: "fas fa-box"
-            },
-                 {
-                id: 5,
-                name: "علبة سجائر سميكة 20 سلك تنجستن مشعل شحن USB ولاعة خارجية مقاومة للماء والرطوبة ولاعات كهربائية للدخان",
-                price: 25,
-                description: "",
-                image: "https://cdn.pixabay.com/photo/2017/12/09/08/18/bacon-3000566_1280.jpg",
-                icon: "fas fa-box"
-            },
-                      {
-                id: 6,
-                name: "بلوت",
-                price: 14,
-                description: "بلوت",
-                image: "https://i.postimg.cc/W326x5bN/lqtt-alshasht-2025-10-23-164408.png",
-                icon: "fas fa-box"
-            },
-                 {
-                id: 7,
-                name: "اعة ذكية لساعات أندرويد IOS 1.83 بوصة HD عرض بلوتوث",
-                price: 85,
-                description: "بلوت",
-                image: "https://i.postimg.cc/W326x5bN/lqtt-alshasht-2025-10-23-164408.png",
-                icon: "fas fa-box"
-            },
-                    {
-                id: 8,
-                name: "لفولاذ المقاوم للصدأ سكين للفرد سكين",
-                price: 85,
-                description: "لفولاذ المقاوم للصدأ سكين للفرد سكين",
-                image: "https://i.postimg.cc/x1FCz2CS/lqtt-alshasht-2025-10-23-192529.png",
-                icon: "fas fa-box"
-            },
-                         {
-                id: 9,
-                name: "2 قطعة LED ترحيب أضواء باب السيارة شعار العارض مصابيح لكزس",
-                price: 55,
-                description: "2 قطعة LED ترحيب أضواء باب السيارة شعار العارض مصابيح لكزس",
-                image: "https://i.postimg.cc/x1FCz2CS/lqtt-alshasht-2025-10-23-192529.png",
-                icon: "fas fa-box"
-            },
-                                {
-                id: 10,
-                name: " مجموعة شيشة كاملة",
-                price: 110,
-                description: "مجموعة شيشة كاملة",
-                image: "https://i.postimg.cc/x1FCz2CS/lqtt-alshasht-2025-10-23-192529.png",
-                icon: "fas fa-box"
-            },
-                                {
-                id: 11,
-                name: "INS المملكة العربية السعودية محفظة جواز السفر بطاقة جراب هاتف آيفون 14 برو ماكس 11 12 13 15Plus 16Pro الغطاء الخلفي",
-                price: 45,
-                description: "",
-                image: "https://i.postimg.cc/x1FCz2CS/lqtt-alshasht-2025-10-23-192529.png",
-                icon: "fas fa-box"
-            }
+      <div class="countdown" role="timer" aria-live="polite">
+        <div class="time"><strong id="days">--</strong><small>أيام</small></div>
+        <div class="time"><strong id="hrs">--</strong><small>ساعات</small></div>
+        <div class="time"><strong id="mins">--</strong><small>دقائق</small></div>
+        <div class="time"><strong id="secs">--</strong><small>ثواني</small></div>
+      </div>
 
 
 
-            ];
-        
 
+  <script>
+    // Simple helpers
+    function openMail(){ window.location.href='mailto:support@dhoomstore.com?subject=استفسار%20حول%20الصيانة'; }
+    function goHome(){ window.location.href='/'; }
+    function subscribe(){
+      const email = document.getElementById('email').value.trim();
+      if(!email){ alert('دخل بريد إلكتروني صالح'); return; }
+      alert('شكرًا! تم تسجيل بريدك للاطلاع على التحديثات.');
+      document.getElementById('email').value = '';
+    }
 
+    // Countdown example (set to +24 hours by default)
+    const target = new Date(Date.now() + 42*60*60*1000);
+    document.getElementById('eta').textContent = target.toLocaleString('ar-EG',{weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'});
 
-            
-
-            
-        
-
-        // بيانات السلة - يتم تخزينها في localStorage للحفاظ عليها عند تحديث الصفحة
-        let cart = JSON.parse(localStorage.getItem('dahoumStoreCart')) || [];
-        
-        // عناصر DOM
-        const cartCount = document.getElementById('cartCount');
-        const cartItems = document.getElementById('cartItems');
-        const cartTotal = document.getElementById('cartTotal');
-        const cartSidebar = document.getElementById('cartSidebar');
-        const overlay = document.getElementById('overlay');
-        const checkoutModal = document.getElementById('checkoutModal');
-        const checkoutForm = document.getElementById('checkoutForm');
-
-        // تهيئة الصفحة
-        document.addEventListener('DOMContentLoaded', function() {
-            updateCart();
-            setupEventListeners();
-        });
-
-        // إعداد مستمعي الأحداث
-        function setupEventListeners() {
-            // إغلاق السلة عند النقر على الـ overlay
-            overlay.addEventListener('click', toggleCart);
-            
-            // إغلاق نافذة الدفع عند النقر خارجها
-            checkoutModal.addEventListener('click', function(e) {
-                if (e.target === checkoutModal) {
-                    closeCheckoutModal();
-                }
-            });
-            
-            // إرسال نموذج الطلب
-            checkoutForm.addEventListener('submit', handleCheckout);
-        }
-
-        // إضافة منتج إلى السلة
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-            
-            const existingItem = cart.find(item => item.id === productId);
-            
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    quantity: 1,
-                    icon: product.icon
-                });
-            }
-            
-            saveCartToStorage();
-            updateCart();
-            showNotification(`تم إضافة ${product.name} إلى السلة`, 'success');
-        }
-
-        // إزالة منتج من السلة
-        function removeFromCart(productId) {
-            const productName = cart.find(item => item.id === productId)?.name;
-            cart = cart.filter(item => item.id !== productId);
-            
-            saveCartToStorage();
-            updateCart();
-            
-            if (productName) {
-                showNotification(`تم إزالة ${productName} من السلة`, 'warning');
-            }
-        }
-
-        // تحديث كمية المنتج في السلة
-        function updateQuantity(productId, change) {
-            const item = cart.find(item => item.id === productId);
-            if (!item) return;
-            
-            item.quantity += change;
-            
-            if (item.quantity <= 0) {
-                removeFromCart(productId);
-                return;
-            }
-            
-            saveCartToStorage();
-            updateCart();
-        }
-
-        // تحديث عرض السلة
-        function updateCart() {
-            // تحديث عدد العناصر في السلة
-            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCount.textContent = totalItems;
-            
-            // تحديث قائمة العناصر في السلة
-            cartItems.innerHTML = '';
-            
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<div style="text-align: center; padding: 2rem; color: #666;">السلة فارغة</div>';
-                cartTotal.textContent = '0 ر.س';
-                return;
-            }
-            
-            // حساب المجموع الكلي
-            let total = 0;
-            
-            // إضافة كل عنصر في السلة
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                
-                const cartItemElement = document.createElement('div');
-                cartItemElement.className = 'cart-item';
-                cartItemElement.innerHTML = `
-                    <div class="item-image">
-                        <i class="${item.icon}"></i>
-                    </div>
-                    <div class="item-details">
-                        <div class="item-name">${item.name}</div>
-                        <div class="item-price">${item.price} ر.س</div>
-                    </div>
-                    <div class="item-controls">
-                        <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
-                        <span>${item.quantity}</span>
-                        <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
-                        <button class="remove-item" onclick="removeFromCart(${item.id})">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                `;
-                cartItems.appendChild(cartItemElement);
-            });
-
-            // تحديث المجموع الكلي
-            cartTotal.textContent = `${total} ر.س`;
-        }
-
-        // حفظ السلة في localStorage
-        function saveCartToStorage() {
-            localStorage.setItem('dahoumStoreCart', JSON.stringify(cart));
-        }
-
-        // فتح/إغلاق السلة
-        function toggleCart() {
-            const isActive = cartSidebar.classList.toggle('active');
-            overlay.classList.toggle('active');
-            document.body.style.overflow = isActive ? 'hidden' : 'auto';
-        }
-
-        // فتح نافذة الدفع
-        function openCheckoutModal() {
-            if (cart.length === 0) {
-                showNotification('السلة فارغة، أضف بعض المنتجات أولاً', 'error');
-                return;
-            }
-            checkoutModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        // إغلاق نافذة الدفع
-        function closeCheckoutModal() {
-            checkoutModal.classList.remove('active');
-            document.body.style.overflow = cartSidebar.classList.contains('active') ? 'hidden' : 'auto';
-        }
-
-        // معالجة إرسال الطلب
-        function handleCheckout(e) {
-            e.preventDefault();
-            
-            // جمع بيانات العميل
-            const name = document.getElementById('customerName').value;
-            const email = document.getElementById('customerEmail').value;
-            const phone = document.getElementById('customerPhone').value;
-            const address = document.getElementById('customerAddress').value;
-            
-            // التحقق من صحة البيانات
-            if (!name || !phone || !address) {
-                showNotification('يرجى ملء جميع الحقول المطلوبة', 'error');
-                return;
-            }
-            
-            // حساب المجموع الكلي
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            
-            // إنشاء تفاصيل الطلب
-            const orderDetails = cart.map(item => 
-                `${item.name} - ${item.quantity} × ${item.price} ر.س = ${item.quantity * item.price} ر.س`
-            ).join('%0A');
-            
-            // إنشاء رسالة الطلب
-            const message = `طلب جديد من دحوم ستور%0A%0Aالزبون: ${name}%0Aالبريد: ${email}%0Aالهاتف: ${phone}%0Aالعنوان: ${address}%0A%0Aالطلبات:%0A${orderDetails}%0A%0Aالمجموع: ${total} ر.س`;
-            
-            // إرسال الطلب عبر واتساب
-            const whatsappNumber = '966567832250';
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
-            
-            window.open(whatsappUrl, '_blank');
-            
-            // إعادة تعيين السلة والنموذج
-            cart = [];
-            saveCartToStorage();
-            updateCart();
-            closeCheckoutModal();
-            toggleCart();
-            checkoutForm.reset();
-            
-            showNotification('تم إرسال الطلب بنجاح! سيتم التواصل معك قريباً', 'success');
-        }
-
-        // عرض الإشعارات
-        function showNotification(message, type = 'success') {
-            // إنشاء عنصر الإشعار
-            const notification = document.createElement('div');
-            notification.className = `notification ${type}`;
-            notification.innerHTML = `
-                <i class="fas fa-${type === 'success' ? 'check' : type === 'error' ? 'exclamation-triangle' : 'exclamation-circle'}"></i>
-                <span>${message}</span>
-            `;
-            
-            document.body.appendChild(notification);
-            
-            // إظهار الإشعار
-            setTimeout(() => {
-                notification.classList.add('show');
-            }, 10);
-            
-            // إخفاء الإشعار بعد 3 ثوانٍ
-            setTimeout(() => {
-                notification.classList.remove('show');
-                setTimeout(() => {
-                    if (notification.parentNode) {
-                        notification.parentNode.removeChild(notification);
-                    }
-                }, 500);
-            }, 3000);
-        }
-
-        // تحديث أزرار إضافة إلى السلة في HTML
-        document.querySelectorAll('.add-to-cart').forEach((button, index) => {
-            // إضافة معرف المنتج إلى الزر
-            button.setAttribute('data-product-id', products[index].id);
-            
-            // إضافة مستمع الحدث
-            button.addEventListener('click', function() {
-                const productId = parseInt(this.getAttribute('data-product-id'));
-                addToCart(productId);
-            });
-        });
-
-    </script>
+    function tick(){
+      const now = new Date();
+      const diff = Math.max(0, target - now);
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hrs = Math.floor(diff / (1000*60*60)) % 24;
+      const mins = Math.floor(diff / (1000*60)) % 60;
+      const secs = Math.floor(diff / 1000) % 60;
+      document.getElementById('days').textContent = String(days).padStart(2,'0');
+      document.getElementById('hrs').textContent = String(hrs).padStart(2,'0');
+      document.getElementById('mins').textContent = String(mins).padStart(2,'0');
+      document.getElementById('secs').textContent = String(secs).padStart(2,'0');
+      if(diff<=0) clearInterval(timer);
+    }
+    tick();
+    const timer = setInterval(tick,1000);
+  </script>
 </body>
 </html>
