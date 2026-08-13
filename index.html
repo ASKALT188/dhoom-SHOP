@@ -886,6 +886,175 @@
                 font-size: 0.8rem;
             }
         }
+
+        /* ===== زر القائمة الجانبية ===== */
+        .menu-toggle {
+            background: rgba(201, 168, 124, 0.06);
+            border: 1px solid rgba(201, 168, 124, 0.1);
+            color: #c9a87c;
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            flex-shrink: 0;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(201, 168, 124, 0.12);
+            border-color: rgba(201, 168, 124, 0.25);
+        }
+
+        /* ===== القائمة الجانبية ===== */
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(2px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            z-index: 100;
+        }
+
+        .sidebar-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: min(300px, 82vw);
+            background: linear-gradient(170deg, rgba(20, 15, 12, 0.98), rgba(10, 7, 6, 0.99));
+            border-left: 1px solid rgba(201, 168, 124, 0.14);
+            box-shadow: -20px 0 60px rgba(0, 0, 0, 0.6);
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 101;
+            padding: 20px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(201, 168, 124, 0.1);
+        }
+
+        .sidebar-header h2 {
+            font-size: 1.1rem;
+            color: #f0e6d8;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-header h2 i {
+            color: #c9a87c;
+        }
+
+        .sidebar-close {
+            background: rgba(201, 168, 124, 0.06);
+            border: 1px solid rgba(201, 168, 124, 0.1);
+            color: #a8907a;
+            width: 30px;
+            height: 30px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .sidebar-close:hover {
+            color: #f0e6d8;
+            border-color: rgba(201, 168, 124, 0.25);
+        }
+
+        .stat-card {
+            background: rgba(201, 168, 124, 0.05);
+            border: 1px solid rgba(201, 168, 124, 0.1);
+            border-radius: 20px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .stat-card .stat-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: rgba(201, 168, 124, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            color: #f7d98c;
+            flex-shrink: 0;
+        }
+
+        .stat-card.online .stat-icon {
+            position: relative;
+        }
+
+        .stat-card.online .stat-icon::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+            animation: pulseIcon 2s ease-in-out infinite;
+        }
+
+        .stat-card .stat-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .stat-card .stat-value {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #f0e6d8;
+            font-family: 'Courier New', monospace;
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.75rem;
+            color: #8a7a6a;
+        }
+
+        .sidebar-note {
+            margin-top: auto;
+            font-size: 0.7rem;
+            color: #5a4a3a;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
     </style>
 </head>
 <body>
@@ -901,6 +1070,9 @@
     <!-- ===== الهيدر ===== -->
     <div class="header">
         <div class="logo">
+            <button class="menu-toggle" id="sidebarToggle" aria-label="القائمة الجانبية">
+                <i class="fas fa-bars"></i>
+            </button>
             <i class="fas fa-mosque"></i>
             <h1>فاذكروني</h1>
         </div>
@@ -1141,6 +1313,38 @@
 
 </div>
 
+<!-- ===== القائمة الجانبية: الإحصائيات ===== -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <h2><i class="fas fa-chart-simple"></i> الإحصائيات</h2>
+        <button class="sidebar-close" id="sidebarClose" aria-label="إغلاق">
+            <i class="fas fa-xmark"></i>
+        </button>
+    </div>
+
+    <div class="stat-card online">
+        <div class="stat-icon"><i class="fas fa-signal"></i></div>
+        <div class="stat-info">
+            <span class="stat-value" id="onlineCount">--</span>
+            <span class="stat-label">متصل الآن</span>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-users"></i></div>
+        <div class="stat-info">
+            <span class="stat-value" id="totalCount">--</span>
+            <span class="stat-label">إجمالي زوار الموقع</span>
+        </div>
+    </div>
+
+    <div class="sidebar-note">
+        <i class="fas fa-circle-info"></i>
+        يتم التحديث تلقائيًا كل بضع ثوانٍ
+    </div>
+</div>
+
 <!-- ===== SVG for ring gradient ===== -->
 <svg style="position:absolute;width:0;height:0;">
     <defs>
@@ -1312,6 +1516,106 @@
 
         ayaText.textContent = OFFLINE_SURAHS['الفاتحة'].text;
         ayaMeta.innerHTML = '<i class="fas fa-book"></i> ' + OFFLINE_SURAHS['الفاتحة'].meta;
+
+        /* ============================================================
+           القائمة الجانبية: فتح / إغلاق
+        ============================================================ */
+        const sidebar = el('sidebar');
+        const sidebarOverlay = el('sidebarOverlay');
+        const sidebarToggle = el('sidebarToggle');
+        const sidebarClose = el('sidebarClose');
+
+        function openSidebar() {
+            sidebar.classList.add('open');
+            sidebarOverlay.classList.add('open');
+        }
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            sidebarOverlay.classList.remove('open');
+        }
+        sidebarToggle.addEventListener('click', openSidebar);
+        sidebarClose.addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+
+        /* ============================================================
+           إحصائيات الزوار (متصل الآن + الإجمالي)
+           تعتمد على تخزين المشروع المشترك (window.storage)
+        ============================================================ */
+        const onlineCountEl = el('onlineCount');
+        const totalCountEl = el('totalCount');
+
+        const hasStorage = (typeof window !== 'undefined' && window.storage);
+        // معرّف جلسة فريد لهذه الزيارة (في الذاكرة فقط، بدون أي تخزين متصفح)
+        const sessionId = (crypto && crypto.randomUUID) ? crypto.randomUUID() :
+            ('s-' + Date.now() + '-' + Math.random().toString(36).slice(2));
+
+        const HEARTBEAT_MS = 10000;   // نرسل نبضة كل 10 ثوانٍ
+        const STALE_MS = 30000;       // نعتبر الزائر غير متصل بعد 30 ثانية بدون نبضة
+        const GC_MS = 5 * 60 * 1000;  // ننظف السجلات الأقدم من 5 دقائق
+
+        async function bumpTotalVisits() {
+            if (!hasStorage) return;
+            try {
+                let current = 0;
+                try {
+                    const res = await window.storage.get('stats:totalVisits', true);
+                    if (res && res.value != null) current = parseInt(res.value, 10) || 0;
+                } catch (e) { /* لا توجد قيمة بعد، نبدأ من صفر */ }
+                current += 1;
+                await window.storage.set('stats:totalVisits', String(current), true);
+                if (totalCountEl) totalCountEl.textContent = current.toLocaleString('ar');
+            } catch (e) {
+                console.error('تعذّر تحديث إجمالي الزوار:', e);
+            }
+        }
+
+        async function sendHeartbeat() {
+            if (!hasStorage) return;
+            try {
+                await window.storage.set('online:' + sessionId, String(Date.now()), true);
+            } catch (e) {
+                console.error('تعذّر إرسال نبضة الاتصال:', e);
+            }
+        }
+
+        async function refreshOnlineCount() {
+            if (!hasStorage) return;
+            try {
+                const listRes = await window.storage.list('online:', true);
+                const keys = (listRes && listRes.keys) ? listRes.keys : [];
+                const now = Date.now();
+                let liveCount = 0;
+
+                for (const key of keys) {
+                    try {
+                        const res = await window.storage.get(key, true);
+                        const ts = res && res.value != null ? parseInt(res.value, 10) : 0;
+                        const age = now - ts;
+                        if (age < STALE_MS) {
+                            liveCount += 1;
+                        } else if (age > GC_MS) {
+                            // تنظيف السجلات القديمة جدًا
+                            window.storage.delete(key, true).catch(() => {});
+                        }
+                    } catch (e) { /* تجاهل مفتاح تالف */ }
+                }
+
+                if (onlineCountEl) onlineCountEl.textContent = Math.max(1, liveCount).toLocaleString('ar');
+            } catch (e) {
+                console.error('تعذّر تحديث عدد المتصلين:', e);
+            }
+        }
+
+        if (hasStorage) {
+            bumpTotalVisits();
+            sendHeartbeat();
+            refreshOnlineCount();
+            setInterval(sendHeartbeat, HEARTBEAT_MS);
+            setInterval(refreshOnlineCount, HEARTBEAT_MS);
+        } else {
+            if (onlineCountEl) onlineCountEl.textContent = '—';
+            if (totalCountEl) totalCountEl.textContent = '—';
+        }
 
     })();
 </script>
